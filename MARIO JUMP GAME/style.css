@@ -1,0 +1,127 @@
+/* Define margens, preenchimentos e a box-sizing para todos os elementos como "border-box" */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estiliza a área do jogo */
+.game {
+    width: 100%; /* Largura total da tela */
+    height: 100vh; /* Altura total da tela */
+    border-bottom: 30px solid rgb(106, 239, 82); /* Cor do chão */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    position: relative; /* Posicionamento relativo para conter elementos filhos */
+    overflow: hidden; /* Esconde elementos que ultrapassam os limites */
+    background: linear-gradient(#87CEEB, #E0F6FF); /* Gradiente para o céu */
+}
+
+/* Estiliza os botões */
+button {
+    background: rgb(0, 47, 128); /* Cor de fundo azul escuro */
+    color: white; /* Texto branco */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    border: none; /* Remove bordas */
+    padding: 1rem; /* Espaçamento interno */
+    position: absolute; /* Posicionamento absoluto */
+    right: 50vw; /* Alinha ao centro horizontalmente */
+    top: 50vh; /* Alinha ao centro verticalmente */
+    cursor: pointer; /* Muda o cursor ao passar */
+    z-index: 1; /* Garante que o botão esteja acima de outros elementos */
+}
+
+/* Estiliza o botão ao passar o mouse */
+button:hover {
+    border: 2px solid rgb(15, 41, 239); /* Adiciona uma borda azul */
+    background: none; /* Remove o fundo */
+    color: rgb(19, 90, 197); /* Altera a cor do texto */
+}
+
+/* Tela de "Game Over" */
+.game-over {
+    width: 100%; /* Largura total */
+    height: 100vh; /* Altura total */
+    background: rgba(0, 0, 0, 0.322); /* Fundo semitransparente */
+    display: none; /* Inicialmente escondido */
+    align-items: center; /* Alinha elementos verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    flex-direction: column; /* Alinha itens em coluna */
+    position: fixed; /* Fixa no topo da tela */
+    top: 0;
+    left: 0;
+}
+
+/* Estiliza o texto "Game Over" */
+.game-over h1 {
+    font-size: 3rem; /* Tamanho grande do texto */
+    color: rgb(0, 0, 0); /* Cor preta */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 15rem; /* Espaçamento superior */
+}
+
+/* Estiliza o tubo */
+.pipe {
+    position: absolute; /* Posicionamento absoluto no container .game */
+    bottom: 0; /* Alinha ao chão */
+    right: -80px; /* Inicialmente fora da tela */
+    width: 80px; /* Largura do tubo */
+}
+
+/* Estiliza o personagem Mario */
+.mario {
+    width: 150px; /* Largura do Mario */
+    position: absolute; /* Posicionamento absoluto no container .game */
+    bottom: 0; /* Alinha ao chão */
+}
+
+/* Estiliza as nuvens */
+.clouds {
+    width: 550px; /* Largura das nuvens */
+    position: absolute; /* Posicionamento absoluto */
+    top: 0; /* Alinha no topo */
+    animation: clouds-animation 20s infinite linear; /* Animação das nuvens */
+}
+
+/* Animação para mover as nuvens da direita para a esquerda */
+@keyframes clouds-animation {
+    from {
+        right: -550px; /* Começa fora da tela pela direita */
+    }
+    to {
+        right: 100%; /* Move para fora da tela pela esquerda */
+    }
+}
+
+/* Adiciona a animação do tubo */
+.pipe-animation {
+    animation: pipe-animation 2s infinite linear; /* Animação de movimento do tubo */
+}
+
+/* Animação do tubo movendo da direita para a esquerda */
+@keyframes pipe-animation {
+    from {
+        right: -80px; /* Começa fora da tela pela direita */
+    }
+    to {
+        right: 100%; /* Move para fora da tela pela esquerda */
+    }
+}
+
+/* Adiciona a animação de pulo para o Mario */
+.jump {
+    animation: jump 800ms ease-out; /* Animação com duração de 800ms */
+}
+
+/* Animação do pulo do Mario */
+@keyframes jump {
+    0% {
+        bottom: 0; /* Começa no chão */
+    }
+    40%, 50%, 60% {
+        bottom: 200px; /* Sobe até 200px */
+    }
+    100% {
+        bottom: 0; /* Volta ao chão */
+    }
+}
