@@ -42,7 +42,7 @@ Incluir diferentes níveis de dificuldade.
 
 Melhorar a responsividade para dispositivos móveis.
 
-###🙌 Contribuições
+### 🙌 Contribuições
 
 Sinta-se à vontade para sugerir melhorias ou relatar bugs.
 
